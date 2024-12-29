@@ -1,5 +1,4 @@
 import pandas as pd
-from langdetect import detect
 import json
 import random
 from unidecode import unidecode
@@ -149,7 +148,8 @@ def generate_incomplete_phrase(villes):
         f"Je préfère le style de vie de {ville_arrivee} à celui de {ville_depart}",
         f"Les événements culturels à {ville_arrivee} sont très différents de ceux à {ville_depart}",
         f"Je trouve la vie nocturne de {ville_arrivee} plus intéressante que celle de {ville_depart}",
-        f"Je suis venu de {ville_depart} pour profiter de l'atmosphère animée de {ville_arrivee}"
+        f"Je suis venu de {ville_depart} pour profiter de l'atmosphère animée de {ville_arrivee}",
+        f"J'aimerais aller à {ville_depart}"
     ]
 
     phrase = random.choice(phrases).lower()
@@ -240,6 +240,7 @@ def generate_ds(file_path: str, villes, n: int, with_detour = False):
 if __name__ == "__main__":
     villes = load_json_data("assets/cities.json")
 
-    generate_ds('bert_ds.csv', villes, 3000)
+    # generate_ds('bert_ds.csv', villes, 3000)
     generate_ds('bert_ds_val.csv', villes, 5)
-    generate_ds(file_path='spacy_ds.csv', villes=villes, n=5000, with_detour=True)
+    # generate_ds(file_path='spacy_ds.csv', villes=villes, n=7000, with_detour=True)
+    # generate_ds(file_path='spacy_ds_val.csv', villes=villes, n=10, with_detour=True)
